@@ -1,0 +1,78 @@
+/* Impostazioni generali */
+body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 20px;
+    line-height: 1.4;
+}
+
+/* Header e Navigazione (Sfondo Verde) */
+header nav, .nav-bottom {
+    background-color: #90EE90; /* Verde chiaro acceso */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Link Rossi */
+nav ul li a, .nav-bottom ul li a {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Testo elenco in Blu */
+nav ul li, .nav-bottom ul li {
+    color: blue;
+}
+
+/* Sezione Storia */
+#storia h2 {
+    color: black;
+    margin-bottom: 10px;
+}
+
+/* Primo paragrafo dopo h2 in BLU */
+#storia h2 + p {
+    color: blue;
+}
+
+/* Paragrafi successivi in FUCSIA */
+#storia p:nth-of-type(2), 
+#storia p:nth-of-type(3) {
+    color: #FF00FF; 
+}
+
+/* Sezione Monumenti testo in BLU */
+#monumenti > p {
+    color: blue;
+}
+
+/* Paragrafo con sfondo AZZURRO */
+.evidenziato-azzurro {
+    background-color: #87CEEB; 
+    padding: 5px;
+    display: block; /* Occupa tutta la riga come in foto */
+}
+
+/* Link viola dentro l'azzurro */
+.evidenziato-azzurro a {
+    color: #800080;
+}
+
+/* Placeholder Immagine */
+.placeholder-immagine {
+    margin: 15px 0;
+}
+
+/* Figcaption con sfondo GRIGIO */
+figcaption {
+    background-color: #C0C0C0; 
+    padding: 3px 10px;
+    margin-bottom: 2px;
+    width: fit-content;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid black;
+    margin-top: 20px;
+    font-size: 14px;
+}

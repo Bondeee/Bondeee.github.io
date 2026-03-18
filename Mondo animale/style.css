@@ -1,0 +1,59 @@
+.Header {
+    background-color: #317071;
+    color: white;
+    text-align: center;
+}
+
+.Galleria{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.Images{
+    margin-top: 10px;
+}
+
+.Images img{
+    width: 200px;  
+    height: 150px; 
+    object-fit: cover;
+    border-radius: 10px;
+}
+.Liste{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Liste h2{
+    margin-top: 20px;
+}
+
+.Liste ul .Liste ol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Azioni{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.Azioni button{
+    margin: 10px;
+    margin-top: 10px;
+    background-color: #317071;
+    color: aliceblue;
+    width: 10
+    0px;
+    height: 50px;
+}
+
+.Footer{
+    color: white;
+    background-color: rgb(29, 29, 29);
+    text-align: center;
+    max-height: 150px;
+}
