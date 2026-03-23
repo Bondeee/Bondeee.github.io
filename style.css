@@ -15,6 +15,11 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    display: flex;   /*inserisce automaticamente il nav a sinistra e il resto a destra*/   
+    margin: 0;
+    padding: 0;
+    max-width: none;    
+    min-height: 100vh;
 }
 
 h2 { font-size: 1.75rem; line-height: 1.3; margin-bottom: 0.75rem; }
@@ -45,8 +50,16 @@ a:focus-visible {
 #nav-principale {
     background-color: #1a1a2e;
     padding: 1rem 1.5rem;
+    width: 250px;           /* Larghezza fissa */
+    height: 100vh;          /* Occupa tutta l'altezza dello schermo */
+    position: sticky;       /* Resta fissa mentre scorri il resto */
+    top: 0;
+    background-color: #333; 
+    padding: 2rem;
+    box-sizing: border-box;
+    flex-shrink: 0;           /* Impedisce alla barra di restringersi */
 }
- 
+
 #nav-principale ul {
     list-style: none;
     margin: 0;
@@ -57,13 +70,21 @@ a:focus-visible {
     display: block;
     color: #e8e8e8;
     text-decoration: none;
-    padding: 0.4rem 0;
+    /* padding: 0.4rem 0; */
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
 }
  
 .nav-link:hover,
 .nav-link:focus-visible {
     color: #7eb8f7;
     outline-color: #7eb8f7;
+}
+
+.contenuto-destra {
+    flex-grow: 1;             /* Occupa tutto lo spazio rimasto */
+    padding: 3rem;            /* Spazio interno per il testo */
+    max-width: 1000px;        
 }
 
 .hero {
@@ -125,6 +146,12 @@ a:focus-visible {
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.card a {
+    text-decoration: none;
+    color: #333;
+    font-size: medium;
 }
  
 .card h3 {
@@ -200,4 +227,15 @@ blockquote footer {
     margin-right: 0.6rem;
     vertical-align: middle;
     border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Torna verticale su telefoni */
+    }
+    #nav-principale {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 }
