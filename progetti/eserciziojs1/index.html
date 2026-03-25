@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <a href="../progetti.html">← Torna alla Home</a>
+        <title>Esempio di funzione JavaScript</title>
+
+        <script>
+
+            
+
+            function saluta(){
+                console.log("Ciao hai cliccato il bottone!");
+            }
+
+            window.onload = function(){ 
+                let bottone = document.getElementById("cliccaQui");
+                bottone.addEventListener("click", saluta);
+            }
+
+
+            // Questa funzione verrà chiamata quando l'utente clicca il bottone
+            function cambiaTesto() {
+                document.getElementById("demo").innerHTML = "Hello JavaScript!"; //innerHTML va a prendere la foglia del nodo (in questo caso il testo)
+            }
+
+            // Funzione che accende la "lampadina"
+            function accendiLuce() {
+                document.getElementById("myImage").src = "images/BulbOn.png";
+            }
+    
+            // Funzione che spegne la "lampadina"
+            function spegniLuce() {
+                document.getElementById("myImage").src = "/progetti/eserciziojs1/images/BulbOff.png";
+            }
+        </script>
+        
+    </head>
+
+    <body>
+
+        <h2>What Can JavaScript Do?</h2>
+
+        <p id="demo">JavaScript can change HTML content.</p>
+
+        <button type="button" onclick="cambiaTesto()">Click Me!</button>
+
+        <button type="button" id="cliccaQui">clicca qui!</button>
+
+        <h2>What Can JavaScript Do?</h2>
+
+        <p>JavaScript can change HTML attribute values.</p>
+
+        <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+
+        <button type="button" onclick="accendiLuce()">Turn on the light</button>
+
+        <img id="myImage" src = "/progetti/eserciziojs1/images/BulbOff.png" style="width:100px">
+
+        <button type="button" onclick="spegniLuce()">Turn off the light</button>
+
+
+    </body>
+
+
+</html>
