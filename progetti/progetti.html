@@ -1,26 +1,91 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Il Mio Sito Web</title> 
+  <title>I Miei Progetti</title> 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="../index.html">← Torna alla Home</a>
-    <h1>Benvenuto nel mio sito</h1>
+    <header class="container">
+        <a href="../index.html" class="back-link">← Torna alla Home</a>
+        <h1 class="main-title">I Miei Progetti</h1>
+    </header>
 
-    <nav>
-      <ol>
-        <li class="card"><a href="primoEsercizioCSS/page.html">Mantova</a></li>
-        <li class="card"><a href="Mondo animale/index.html">Il mondo animale</a></li>
-        <li class="card"><a href="esempioJavaScript/index.html">elenco puntato con javascript</a></li>
-        <li class="card"><a href="TavolaPitagorica/index.html">Tavola pitagorica (caselle dispari evidenziate) </a></li>
-        <li class="card"><a href="eserciziojs1/index.html">primo esercizio java script </a></li>
-        <li class="card"><a href="Esempio_input/index.html">esempio di input in html </a></li>
-        <li class="card"><a href="Combo_text_box_esempio/index.html">esempio con comboBox e textBox</a></li>
-        <li class="card"><a href="Registrazione Utente/index.html">Registrazione utente</a></li>
-      </ol>
-    </nav>
+    <main class="container">
+        <div class="projects-grid">
+            <!-- MANTOVA -->
+            <a href="primoEsercizioCSS/page.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Mantova</h3>
+                    <p>Un viaggio tra la storia e i monumenti della città dei Gonzaga.</p>
+                </div>
+            </a>
+
+            <!-- IL MONDOD ANIMALE -->
+            <a href="Mondo animale/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Il mondo animale</h3>
+                    <p>piccole curiosità e caratteristiche su delle specie animale poco conosciute.</p>
+                </div>
+            </a>
+
+            <!-- ESEMPIO IN JS --> 
+            <a href="esempioJavaScript/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Liste con JavaScript</h3>
+                    <p>Utilizzo di java Script per creare elenchi puntati.</p>
+                </div>
+            </a>
+
+            <!-- COSA PUÕ FARE JS -->
+            <a href="eserciziojs1/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Primo Esercizio JS</h3>
+                    <p>Mostra cosa può fare java script con cambio di immagini e cambio di scritte.</p>
+                </div>
+            </a>
+
+            <!-- TAVOLA PITAGORICA CON JS -->
+            <a href="TavolaPitagorica/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Tavola Pitagorica</h3>
+                    <p>Stampa di una tabella pitagorica con logica integrata per evidenziare le caselle dispari.</p>
+                </div>
+            </a>
+
+            <!-- PARAGRAFI A SCOMPARSA CON JS -->
+            <a href="paragrafiScomparsa/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Paragrafi a scomparsa</h3>
+                    <p>creazione di paragrafi che appaiono e scompaiono con un click.</p>
+                </div>
+            </a>
+
+            <!-- ESEMPI DI INPUT CON JS -->
+            <a href="Esempio_input/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Esmpio di input in js</h3>
+                    <p>Studio dell'utilizzo di check box e radio button con stampa in console di recap.</p>
+                </div>
+            </a>
+
+            <!-- ESEMPI DI USO DI COMOBO BOX E TEXT BOX -->
+            <a href="Combo_text_box_esempio/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>ComboBox e TextBox in js</h3>
+                    <p>Esempio di utilizzo di comboBox e textBox, riempimento della prima e trascrizione della seconda con stampa in console di recap.</p>
+                </div>
+            </a>
+
+            <!-- PAGINA DI REGISTRAZIONE DI UN UTENTE  -->
+            <a href="Registrazione Utente/index.html" class="cartaProgetto">
+                <div class="card-content">
+                    <h3>Registrazione Utente</h3>
+                    <p>Pagina di registrazione di un utente con controllo di correttezza dei dati.</p>
+                </div>
+            </a>
+
+        </div>
+    </main>
 </body>
 </html>

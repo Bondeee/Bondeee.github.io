@@ -5,7 +5,7 @@ function generaElenco(){
     //assegna il tag alla stringa
     s + "<ul>";
     //crea la lista di item 
-    for(let i = 0; i < 3; i++)
+    for(let i = 0; i < 50; i++)
         s +="<li> Item numero: " + i + "</li>";
     s += "</ul>";
     //ritorna s

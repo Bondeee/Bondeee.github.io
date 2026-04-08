@@ -1,0 +1,56 @@
+body{
+    font-family: Arial;
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: blue;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1{
+    margin: 0;
+}
+
+header p{
+    margin: 0;
+}
+
+main{
+    margin: 50px;
+    padding: 20px;
+}
+
+.sezione{
+    background-color: white;
+    border-radius: 5px;
+    border: 2px black solid;
+    box-shadow: 5px 5px black;
+    margin: 20px;
+}
+
+.sezione .titolo{
+    margin: 0;
+    padding: 20px 20px;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.titolo:hover{
+    background-color: gray;
+}
+
+.sezione .contenuto{
+    display: none; /* Per nascondere il contenuto */
+    padding: 20px 20px;
+}
+
+/* Creo sottoclasse della classe contenuto */
+.sezione .contenuto.visible{
+    display: block; /* Per mostrare il contenuto */
+}
