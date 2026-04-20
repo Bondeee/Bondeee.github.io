@@ -53,7 +53,7 @@ function ElaboraRisposte() {
     // Confronto
     let indiciSingoli = [0, 1, 2, 6]; 
     for (let i of indiciSingoli) 
-        if (rispDate[i] === rispCorrette[i]) 
+        if (rispDate[i] === rispCorrette[i])
             punti++;
     
 
