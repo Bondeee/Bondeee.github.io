@@ -1,5 +1,6 @@
+/* --- IMPOSTAZIONI BASE --- */
 body {
-    background-color: #121212;
+    background-color: #121212; 
     color: white;
     font-family: 'Segoe UI', Arial, sans-serif; 
     margin: 0;
@@ -7,21 +8,23 @@ body {
 }
 
 .container {
-    max-width: 1000px; 
-    margin: 0 auto; 
+    max-width: 1000px; /* Larghezza massima del contenuto centrale */
+    margin: 0 auto; /* Centra tutto il blocco nella pagina */
     padding: 20px;
 }
 
+/* --- COLLEGAMENTO TORNA INDIETRO --- */
 .back-link {
-    color: #4a9eff;
+    color: #4a9eff; 
     text-decoration: none; 
-    font-size: 0.9rem;
+    font-size: 1rem; 
 }
 
 .back-link:hover {
-    text-decoration: underline;
+    text-decoration: underline; 
 }
 
+/* --- TITOLO PAGINA --- */
 .main-title {
     margin-top: 20px;
     font-size: 2.5rem;
@@ -29,46 +32,116 @@ body {
     padding-bottom: 10px;
 }
 
-
+/* --- GRIGLIA PROGETTI --- */
 .projects-grid {
     display: grid; 
-    /* repeat: ripete la colonna
-    auto-fill: mette più colonne che può
-    minmax(280px, 1fr): inserisce il quadro che deve essere di 280px 
-    1fr allarga se rimane spazio libero */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    gap: 20px; 
+    /* Di base mette una colonna sola (per telefono o PC stretto) */
+    grid-template-columns: 1fr; 
+    gap: 20px; /* Spazio tra un progetto e l'altro */
     margin-top: 30px; 
 }
 
-
+/* --- QUADRO DEL PROGETTO (CARD) --- */
 .cartaProgetto {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; 
     border: 1px solid #333;
     border-radius: 12px;
-    padding: 20px;
+    padding: 25px; 
     text-decoration: none; 
-    min-height: 150px;
-    transition: 0.3s; /* quando la carta si alza ci mette 0.3s*/
+    min-height: 160px;
+    /* Serve a far muovere la card con calma e non a scatti */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s;
+    display: block; 
 }
 
-
+/* --- EFFETTO QUANDO PASSI IL MOUSE --- */
 .cartaProgetto:hover {
-    background-color: #252525;
-    transform: translateY(-10px);
-    border-color: #555;
+    background-color: #252525; 
+    transform: translateY(-8px); /* Spsota la card in alto di 8 pixel */
+    border-color: #555; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Ombra scura per dare profondità */
 }
 
+/* --- TESTI DENTRO LE CARD --- */
 .cartaProgetto h3 {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     color: #4a9eff;
-    font-size: 1.3rem;
+    font-size: 1.6rem; 
 }
 
 .cartaProgetto p {
     margin: 0;
-    font-size: 0.95rem;
-    color: #bbb;
-    line-height: 1.5;
+    font-size: 1.1rem; 
+    color: #bbb; 
+    line-height: 1.6; 
+}
+
+/* --- REGOLE PER SCHERMI LARGHI (PC) --- */
+/* Se lo schermo è largo almeno 800px allora metti due colonne */
+@media (min-width: 800px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr; /* Divide lo spazio in due */
+        gap: 30px; 
+    }
+
+    .cartaProgetto {
+        min-height: 200px; /* Le card diventano un po' più alte su PC */
+    }
+}
+
+/* --- BARRA DI NAVIGAZIONE --- */
+#nav-principale {
+    background-color: #000000;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center; /* Allinea verticalmente il tasto Home e i link */
+}
+
+/* Stile per il tasto Torna Home a sinistra */
+.torna-home {
+    color: #4a9eff;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    flex-shrink: 0; /* Impedisce al tasto Home di rimpicciolirsi */
+}
+
+#nav-principale ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+    margin-left: auto; /*spinge la lista lontano dalla Home */
+    margin-right: auto; /* spinge lontano dal bordo destro */
+}
+
+/* Per bilanciare perfettamente il centro, aggiungiamo uno spazio vuoto a destra 
+   largo quanto il tasto "Home" così la lista è davvero in mezzo alla pagina */
+#nav-principale::after {
+    content: "";
+    width: 70px; /* larghezza del tasto Home */
+    flex-shrink: 0;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 800px) {
+    #nav-principale {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    #nav-principale ul {
+        margin: 0; /* Su mobile togliamo il centraggio forzato */
+    }
+    
+    #nav-principale::after {
+        display: none; /* Togliamo lo spazio vuoto su mobile */
+    }
 }
 

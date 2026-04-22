@@ -1,77 +1,66 @@
- /* NAVIGAZIONE: i link sono verticali, vorrei metterli in riga — da risolvere con Flexbox */
- /* CARD: si impilano in verticale, vorrei una griglia — da risolvere con Grid */
-
-
-*, *::before, *::after {
-    box-sizing: border-box;
+/* --- COLORI E TEMA --- */
+:root {
+    /* Colori di default (chiaro) */
+    --sfondo: #ffffff;
+    --testo: #2d2d2d;
+    --nav: #1a1a2e;
+    --punto-luce: #2e75b6; 
+    --bordo: #e0e0e0;
 }
- 
+
+/* Cambio colori automatico se il PC è in dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --sfondo: #121212;   
+        --testo: #e0e0e0; 
+        --nav: #000000;     
+        --punto-luce: #7eb8f7; 
+        --bordo: #333333;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #2d2d2d;
-    background-color: #ffffff;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: flex;   /*inserisce automaticamente il nav a sinistra e il resto a destra*/   
     margin: 0;
-    padding: 0;
-    max-width: none;    
-    min-height: 100vh;
+    background-color: var(--sfondo);
+    color: var(--testo);
 }
 
-h2 { font-size: 1.75rem; line-height: 1.3; margin-bottom: 0.75rem; }
-h3 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 0.5rem; }
- 
-h2 + p {
-    font-size: 1.05rem;
-    color: #555555;
-}
- 
-p { margin-bottom: 1rem; }
-
-a {
-    color: #1a5fa8;
-    text-decoration: underline;
-}
- 
-a:hover {
-    color: #0d3d6e;
-}
- 
-a:focus-visible {
-    outline: 3px solid #1a5fa8;
-    outline-offset: 2px;
-    border-radius: 2px;
-}
-
+/* --- NAVBAR IN ALTO --- */
 #nav-principale {
     background-color: #1a1a2e;
-    display: flex;
     padding: 1rem 1.5rem;
     width: 250px;           /* Larghezza fissa */
     height: 100vh;          /* Occupa tutta l'altezza dello schermo */
     position: sticky;       /* Resta fissa mentre scorri il resto */
     top: 0;
-    background-color: #333; 
-    padding: 2rem;
-    box-sizing: border-box;
-    flex-shrink: 0;           /* Impedisce alla barra di restringersi */
+    z-index: 1000;
+    padding: 15px 0;
 }
 
 #nav-principale ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex; /* Link uno a fianco all'altro */
+    justify-content: center; /* Centra il menu */
+    gap: 30px; /* Spazio tra i bottoni della nav */
 }
- 
+
+/* Sistema il menu se lo schermo è stretto */
+@media (max-width: 600px) {
+    #nav-principale ul {
+        flex-direction: column; /* Link uno sopra l'altro su mobile */
+        align-items: center;
+        gap: 10px;
+    }
+}
+
 .nav-link {
     display: block;
     color: #e8e8e8;
     text-decoration: none;
-    padding: 0.4rem 0; 
+    /* padding: 0.4rem 0; */
     padding: 10px 0;
     border-bottom: 1px solid #444;
 }
@@ -113,65 +102,49 @@ a:focus-visible {
     background-color: #2e75b6;
     color: #ffffff;
     text-decoration: none;
-    padding: 0.75rem 1.75rem;
-    border-radius: 4px;
     font-weight: bold;
+    font-size: 14px;
 }
- 
-.btn:hover {
-    background-color: #1a5fa8;
-    color: #ffffff;
+
+.nav-link:hover {
+    color: var(--punto-luce); /* Colore che cambia al passaggio del mouse */
 }
- 
-.btn-small {
-    display: inline-block;
-    color: #2e75b6;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
- 
-.btn-small:hover {
-    text-decoration: underline;
+
+/* --- LAYOUT PAGINA --- */
+.contenuto-destra {
+    max-width: 850px; 
+    margin: 0 auto;   /* Centra il blocco nella pagina */
+    padding: 50px 20px;
 }
 
 .sezione {
-    margin-bottom: 3rem;
-    padding-top: 1rem;
-}
- 
-/* Le card ora sono verticali: con Grid le affiancheremo */
-.card {
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 60px; /* Distanza tra i blocchi (Chi sono, Competenze, Progetti, FAQ, Contatti) */
 }
 
-.card a {
-    text-decoration: none;
-    color: #333;
-    font-size: medium;
-}
- 
-.card h3 {
-    color: #1a1a2e;
-    margin-bottom: 0.5rem;
+/* Titoli con la linea blu laterale */
+h2 {
+    color: var(--punto-luce);
+    border-left: 4px solid var(--punto-luce);
+    padding-left: 15px;
+    margin-bottom: 20px;
 }
 
-.lista-competenze {
+/* --- LISTE (Competenze e Contatti) --- */
+.lista-competenze, .lista-contatti {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
- 
-.lista-competenze li {
-    padding: 0.6rem 0;
+
+.lista-competenze li, .lista-contatti li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--bordo); /* Riga sotto ogni voce */
 }
- 
-.lista-competenze li:not(:last-child) {
-    border-bottom: 1px solid #e8e8e8;
+
+/* Freccetta prima delle voci */
+.lista-competenze li::before, .lista-contatti li::before {
+    content: "→";
+    color: var(--punto-luce);
+    margin-right: 10px;
 }
  
 .lista-competenze li::before {
@@ -230,6 +203,17 @@ blockquote footer {
     border-radius: 2px;
 }
 
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Torna verticale su telefoni */
+    }
+    #nav-principale {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}
+
 .lista-contatti li::before {
     content: "\2192";  /* → */
     color: #2e75b6;
@@ -247,32 +231,30 @@ blockquote footer {
 
 details {
   background-color: #1e1e1e; 
-  border: 1px solid #333;  
-  color:lightgrey;   
+  border: 1px solid #333;     
   border-radius: 8px;        
   margin-bottom: 15px;
   padding: 15px;
   cursor: pointer;  /*quando il cursore entra nella parte del box diventa il dito*/
 }
 
-
-details:hover {
-  background-color: #2a2a2a; 
-} 
-
-
 summary {
-  list-style: none;
-  font-weight: bold; 
-} 
-
+    font-weight: bold;
+}
 
 .risposta {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #444;
-  color: #ccc; 
-  line-height: 1.5; 
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--bordo);
+    color: #888;
+}
+
+/* --- PIÈ DI PAGINA --- */
+.footer-principale {
+    text-align: center;
+    padding: 40px;
+    font-size: 12px;
+    border-top: 1px solid var(--bordo);
 }
 
 @media (max-width: 768px) {
