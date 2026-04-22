@@ -49,6 +49,7 @@ a:focus-visible {
 
 #nav-principale {
     background-color: #1a1a2e;
+    display: flex;
     padding: 1rem 1.5rem;
     width: 250px;           /* Larghezza fissa */
     height: 100vh;          /* Occupa tutta l'altezza dello schermo */
@@ -70,7 +71,7 @@ a:focus-visible {
     display: block;
     color: #e8e8e8;
     text-decoration: none;
-    /* padding: 0.4rem 0; */
+    padding: 0.4rem 0; 
     padding: 10px 0;
     border-bottom: 1px solid #444;
 }
@@ -229,17 +230,6 @@ blockquote footer {
     border-radius: 2px;
 }
 
-@media (max-width: 768px) {
-    body {
-        flex-direction: column; /* Torna verticale su telefoni */
-    }
-    #nav-principale {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-}
-
 .lista-contatti li::before {
     content: "\2192";  /* → */
     color: #2e75b6;
@@ -257,7 +247,8 @@ blockquote footer {
 
 details {
   background-color: #1e1e1e; 
-  border: 1px solid #333;     
+  border: 1px solid #333;  
+  color:lightgrey;   
   border-radius: 8px;        
   margin-bottom: 15px;
   padding: 15px;
@@ -283,3 +274,15 @@ summary {
   color: #ccc; 
   line-height: 1.5; 
 }
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;  /*Torna verticale su telefoni */
+    }
+    #nav-principale {
+        width: 100%;
+        height: auto;
+        position: sticky;
+    }
+}
+
