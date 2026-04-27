@@ -110,7 +110,7 @@ body {
     flex-shrink: 0; /* Impedisce al tasto Home di rimpicciolirsi */
 }
 
-#nav-principale ul {
+#nav-principale {
     list-style: none;
     margin: 0;
     padding: 0;
