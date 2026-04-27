@@ -1,246 +1,120 @@
-/* --- COLORI E TEMA --- */
+/* --- 1. VARIABILI E RESET --- */
 :root {
-    /* Colori di default (chiaro) */
     --sfondo: #ffffff;
     --testo: #2d2d2d;
-    --nav: #1a1a2e;
+    --nav-bg: #1a1a2e;
     --punto-luce: #2e75b6; 
     --bordo: #e0e0e0;
+    --testo-footer: #777777;
+    --sidebar-width: 250px;
 }
 
-/* Cambio colori automatico se il PC è in dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --sfondo: #121212;   
         --testo: #e0e0e0; 
-        --nav: #000000;     
+        --nav-bg: #000000;      
         --punto-luce: #7eb8f7; 
         --bordo: #333333;
     }
 }
+
+* { box-sizing: border-box; }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: var(--sfondo);
     color: var(--testo);
+    display: flex; /* Layout desktop: sidebar a sinistra, contenuto a destra */
+    min-height: 100vh;
 }
 
-/* --- NAVBAR IN ALTO --- */
+/* --- 2. NAVBAR (Default Desktop: Verticale) --- */
 #nav-principale {
-    background-color: #1a1a2e;
-    padding: 1rem 1.5rem;
-    width: 250px;           /* Larghezza fissa */
-    height: 100vh;          /* Occupa tutta l'altezza dello schermo */
-    position: sticky;       /* Resta fissa mentre scorri il resto */
+    background-color: var(--nav-bg);
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 15px 0;
+    padding: 20px 0;
+    flex-shrink: 0;
 }
 
 #nav-principale ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Link uno a fianco all'altro */
-    justify-content: center; /* Centra il menu */
-    gap: 30px; /* Spazio tra i bottoni della nav */
-}
-
-/* Sistema il menu se lo schermo è stretto */
-@media (max-width: 600px) {
-    #nav-principale ul {
-        flex-direction: column; /* Link uno sopra l'altro su mobile */
-        align-items: center;
-        gap: 10px;
-    }
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-link {
     display: block;
     color: #e8e8e8;
     text-decoration: none;
-    /* padding: 0.4rem 0; */
-    padding: 10px 0;
-    border-bottom: 1px solid #444;
-}
- 
-.nav-link:hover,
-.nav-link:focus-visible {
-    color: #7eb8f7;
-    outline-color: #7eb8f7;
-}
-
-.contenuto-destra {
-    flex-grow: 1;             /* Occupa tutto lo spazio rimasto */
-    padding: 3rem;            /* Spazio interno per il testo */
-    max-width: 1000px;        
-}
-
-.hero {
-    background-color: #1a1a2e;
-    color: #ffffff;
-    padding: 4rem 1.5rem;
-    margin-bottom: 3rem;
-}
- 
-.hero h1 {
-    color: #ffffff;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
- 
-.hero-intro {
-    font-size: 1.15rem;
-    color: #b0c4de;
-    max-width: 60ch;
-    margin-bottom: 2rem;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #2e75b6;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
+    padding: 12px 25px;
+    border-bottom: 1px solid #333;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--punto-luce); /* Colore che cambia al passaggio del mouse */
+    color: var(--punto-luce);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* --- LAYOUT PAGINA --- */
+/* --- 3. CONTENUTO --- */
 .contenuto-destra {
-    max-width: 850px; 
-    margin: 0 auto;   /* Centra il blocco nella pagina */
+    flex-grow: 1;
     padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.sezione {
-    margin-bottom: 60px; /* Distanza tra i blocchi (Chi sono, Competenze, Progetti, FAQ, Contatti) */
+.hero {
+    background-color: var(--nav-bg);
+    color: #ffffff;
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
 }
 
-/* Titoli con la linea blu laterale */
+/* --- 4. COMPONENTI GRAFICI --- */
 h2 {
     color: var(--punto-luce);
     border-left: 4px solid var(--punto-luce);
     padding-left: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
-/* --- LISTE (Competenze e Contatti) --- */
 .lista-competenze, .lista-contatti {
     list-style: none;
     padding: 0;
 }
 
 .lista-competenze li, .lista-contatti li {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--bordo); /* Riga sotto ogni voce */
+    padding: 12px 0;
+    border-bottom: 1px solid var(--bordo);
+    font-size: 1.1rem;
 }
 
-/* Freccetta prima delle voci */
 .lista-competenze li::before, .lista-contatti li::before {
-    content: "→";
+    content: "\2192";
     color: var(--punto-luce);
     margin-right: 10px;
-}
- 
-.lista-competenze li::before {
-    content: "\2192";  /* → */
-    color: #2e75b6;
-    margin-right: 0.6rem;
     font-weight: bold;
-}
-
-blockquote {
-    border-left: 4px solid #2e75b6;
-    padding-left: 1.25rem;
-    margin: 1.5rem 0;
-    font-style: italic;
-    color: #555555;
-}
- 
-blockquote footer {
-    font-style: normal;
-    font-size: 0.9rem;
-    color: #888888;
-    margin-top: 0.5rem;
-}
-
-.footer-principale {
-    border-top: 2px solid #e0e0e0;
-    margin-top: 4rem;
-    padding: 2rem 0;
-    color: #777777;
-    font-size: 0.9rem;
-}
- 
-.footer-principale ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 0.5rem;
-}
- 
-.footer-link {
-    color: #555555;
-    text-decoration: none;
-}
- 
-.footer-link:hover {
-    text-decoration: underline;
-}
-
-.sezione h2::before {
-    content: "";
-    display: inline-block;
-    width: 4px;
-    height: 0.9em;
-    background-color: #2e75b6;
-    margin-right: 0.6rem;
-    vertical-align: middle;
-    border-radius: 2px;
-}
-
-@media (max-width: 768px) {
-    body {
-        flex-direction: column; /* Torna verticale su telefoni */
-    }
-    #nav-principale {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-}
-
-.lista-contatti li::before {
-    content: "\2192";  /* → */
-    color: #2e75b6;
-    margin-right: 0.6rem;
-    font-weight: bold;
-}
-
-
-.lista-contatti li {
-    font-size: 1.2rem;       
-    margin-bottom: 10px;    
-    list-style: none;       
-    line-height: 1.6;
 }
 
 details {
-  background-color: #1e1e1e; 
-  border: 1px solid #333;     
-  border-radius: 8px;        
-  margin-bottom: 15px;
-  padding: 15px;
-  cursor: pointer;  /*quando il cursore entra nella parte del box diventa il dito*/
+    background-color: #1e1e1e; 
+    border: 1px solid #333;      
+    border-radius: 8px;         
+    margin-bottom: 15px;
+    padding: 15px;
+    cursor: pointer;
 }
 
-summary {
-    font-weight: bold;
-}
+summary { font-weight: bold; color: #fff; }
 
 .risposta {
     margin-top: 10px;
@@ -249,22 +123,53 @@ summary {
     color: #888;
 }
 
-/* --- PIÈ DI PAGINA --- */
+/* --- 5. FOOTER --- */
 .footer-principale {
     text-align: center;
     padding: 40px;
-    font-size: 12px;
+    font-size: 0.8rem;
     border-top: 1px solid var(--bordo);
+    color: var(--testo-footer);
+    margin-top: 4rem;
 }
 
+/* --- 6. RESPONSIVE (Schermi piccoli) --- */
 @media (max-width: 768px) {
     body {
-        flex-direction: column;  /*Torna verticale su telefoni */
+        flex-direction: column; /* Impila navbar sopra il contenuto */
     }
+
     #nav-principale {
         width: 100%;
-        height: auto;
+        height: auto; /* Altezza dinamica basata sul contenuto */
         position: sticky;
+        top: 0;
+        padding: 0;
+    }
+
+    #nav-principale ul {
+        flex-direction: row; /* Link in orizzontale */
+        justify-content: center;
+        flex-wrap: wrap; /* Permette di andare a capo se sono troppi */
+    }
+
+    .nav-link {
+        border-bottom: none;
+        padding: 15px 20px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .contenuto-destra {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
     }
 }
-
