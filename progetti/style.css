@@ -115,9 +115,22 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 30px;
+    gap: 50px;
     margin-left: auto; /*spinge la lista lontano dalla Home */
     margin-right: auto; /* spinge lontano dal bordo destro */
+    justify-content: center;
+}
+
+
+#nav-principale ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
 /* Per bilanciare perfettamente il centro, aggiungiamo uno spazio vuoto a destra 
@@ -131,13 +144,14 @@ body {
 /* --- MOBILE --- */
 @media (max-width: 800px) {
     #nav-principale {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        gap: 20px;
         padding: 15px;
     }
     
     #nav-principale ul {
         margin: 0; /* Su mobile togliamo il centraggio forzato */
+        gap: 15px;
     }
     
     #nav-principale::after {
