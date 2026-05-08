@@ -3,15 +3,15 @@
     <head>
         <a href="../progetti.html">← Progetti</a>
         <br> <br> <br>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Ordine</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-            table, th, td{
+            table, th, td {
                 border: 1px solid;
+                padding: 5px;
             }
         </style> 
     </head>
@@ -23,66 +23,60 @@
                 <th>Costo Unitario</th>
                 <th>Totale</th>
             </tr>
-
             <tr>
-                <td> <input id="qta1"></td>
+                <td> <input id="qta1" type="number"></td>
                 <td> mouse </td>
-                <td id = "costo1" value="16"> 16€ </td>
+                <td id="costo1"> 16€ </td>
                 <td id="tot1"> 0 </td>
             </tr>
-
             <tr>
-                <td> <input id="qta2"></td>
+                <td> <input id="qta2" type="number"></td>
                 <td> tastiera 105 tasti </td>
-                <td id = "costo2" value="25"> 25€ </td>
+                <td id="costo2"> 25€ </td>
                 <td id="tot2"> 0 </td>
             </tr>
-
             <tr>
-                <td> <input id="qta3"></td>
+                <td> <input id="qta3" type="number"></td>
                 <td> stampante deskjet colori </td>
-                <td id = "costo3" value="350"> 350€ </td>
+                <td id="costo3"> 350€ </td>
                 <td id="tot3"> 0 </td>
             </tr>
-
             <tr>
-                <td> <input id="qta4"></td>
+                <td> <input id="qta4" type="number"></td>
                 <td> scanner A4 colori </td>
-                <td id = "costo4" value="200"> 200€ </td>
+                <td id="costo4"> 200€ </td>
                 <td id="tot4"> 0 </td>
             </tr>
-
             <tr>
-                <td style="text-align: right;" colspan="3"> <button id = "TotOrdine" onclick="calcolaTotale()">Totale Ordine -> </button> </td>
+                <td style="text-align: right;" colspan="3"> 
+                    <button id="TotOrdine" onclick="calcolaTotale()">Totale Ordine -> </button> 
+                </td>
                 <td id="totale"> 0 </td>
             </tr>
-
         </table>
 
         <br> 
-
-        <button id = "AzzeraModulo">Azzera modulo </button>
-
+        <button onclick="resetForm()">Azzera modulo</button>
         <br> <br>
 
-        Desidero ricevere notifiche <input type="radio" name="notifiche">Si  <input type="radio" name="notifiche">No 
+        Desidero ricevere notifiche 
+        <input type="radio" name="notifiche" id="notifSi" checked>Si 
+        <input type="radio" name="notifiche" id="notifNo">No 
 
         <br> <br>
-
         Email <input id="mail">
-
         <br> <br>
 
-        Pagamento <select name="pagamento" id="pagamento"> 
+        Pagamento 
+        <select name="pagamento" id="pagamento"> 
             <option value="contanti">contanti</option>
             <option value="Carta di credito">Carta di credito</option>
             <option value="bonifico">bonifico</option>
         </select>
 
         <br> <br>
+        <button id="InviaOrdine" onclick="inviaOrdine()">INVIA ORDINE</button>
 
-        <button id = "AzzeraModulo">Azzera modulo </button>
-
-        <script src="script.js" async defer></script>
+        <script src="script.js"></script>
     </body>
 </html>

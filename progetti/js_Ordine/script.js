@@ -1,35 +1,51 @@
 function calcolaTotale() {
-    let tot = 0;
+    let totG = 0;
+    for (let i = 1; i <= 4; i++) {
+        let inputField = document.getElementById("qta" + i);
+        let q = parseInt(inputField.value) || 0;
+        
+        if (q < 0 || q > 20) {
+            alert("Errore Articolo " + i + ": inserire un valore tra 0 e 20.");
+            inputField.focus();
+            return null;
+        }
 
-    // --- Prodotto 1 ---
-    // parseInt converte la stringa in numero. || 0 serve se il campo è vuoto.
-    let q1 = parseInt(document.getElementById("qta1").value) || 0;
-    let c1 = parseInt(document.getElementById("costo1").value) || 0;
-    let t1 = q1 * c1;
-    document.getElementById("tot1").innerHTML = t1;
-    tot += t1;
+        let c = parseInt(document.getElementById("costo" + i).innerText);
+        let t = q * c;
+        document.getElementById("tot" + i).innerHTML = t;
+        totG += t;
+    }
+    document.getElementById("totale").innerHTML = totG;
+    return totG;
+}
 
-    // --- Prodotto 2 ---
-    let q2 = parseInt(document.getElementById("qta2").value) || 0;
-    let c2 = parseInt(document.getElementById("costo2").value) || 0;
-    let t2 = q2 * c2;
-    document.getElementById("tot2").innerHTML = t2;
-    tot += t2;
+function resetForm() {
+    if (confirm("Ripristinare i valori di default?")) {
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById("qta" + i).value = "";
+            document.getElementById("tot" + i).innerHTML = "0";
+        }
+        document.getElementById("totale").innerHTML = "0";
+        document.getElementById("mail").value = "";
+        document.getElementById("pagamento").selectedIndex = 0;
+        document.getElementById("notifSi").checked = true;
+    }
+}
 
-    // --- Prodotto 3 ---
-    let q3 = parseInt(document.getElementById("qta3").value) || 0;
-    let c3 = parseInt(document.getElementById("costo3").value) || 0;
-    let t3 = q3 * c3;
-    document.getElementById("tot3").innerHTML = t3;
-    tot += t3;
+function inviaOrdine() {
+    let totaleEffettivo = calcolaTotale();
+    if (totaleEffettivo === null) return;
 
-    // --- Prodotto 4 ---
-    let q4 = parseInt(document.getElementById("qta4").value) || 0;
-    let c4 = parseInt(document.getElementById("costo4").value) || 0;
-    let t4 = q4 * c4;
-    document.getElementById("tot4").innerHTML = t4;
-    tot += t4;
+    let email = document.getElementById("mail").value;
+    if (!email.includes("@")) {
+        alert("Errore: la mail deve contenere il carattere @");
+        return;
+    }
+    if (email.charAt(0) >= '0' && email.charAt(0) <= '9') {
+        alert("Errore: la mail non può iniziare con una cifra");
+        return;
+    }
 
-    // --- Totale Finale ---
-    document.getElementById("totale").innerHTML = tot;
+    let pagamento = document.getElementById("pagamento").value;
+    alert("Grazie per il suo ordine di " + totaleEffettivo + "€, il pagamento avverrà tramite " + pagamento + ". Riceverà notifiche all’indirizzo " + email + ".");
 }
