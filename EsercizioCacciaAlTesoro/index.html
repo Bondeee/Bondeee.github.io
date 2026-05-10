@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caccia al Tesoro</title>
+  <link rel="stylesheet" href="stile.css">
+</head>
+<body>
+
+  <h1>Caccia al Tesoro Digitale</h1>
+
+  <div id="pannello-stato">
+    <p>Giocatore: <span id="nome-giocatore"></span></p>
+    <p>Punteggio: <span id="punteggio">0</span></p>
+    <p>Vite: <span id="vite">3</span></p>
+  </div>
+
+  <div id="sezione-avvio">
+    <input type="text" id="input-nome" placeholder="Inserisci il tuo nome">
+    <button id="btn-inizia">Inizia</button>
+  </div>
+
+  <div id="sezione-gioco" class="nascosto">
+    <p id="testo-indizio"></p>
+    <p id="testo-distanza"></p>
+    <button id="btn-sono-qui">Sono qui!</button>
+
+    <div id="area-risposta" class="nascosto">
+      <input type="text" id="input-risposta" placeholder="Inserisci la parola chiave">
+      <button id="btn-invia">Invia</button>
+    </div>
+
+    <p id="feedback"></p>
+
+    <div id="log-eventi"></div>
+  </div>
+
+  <div id="sezione-fine" class="nascosto">
+    <p id="messaggio-fine"></p>
+    <p>Punteggio finale: <span id="punteggio-finale"></span></p>
+    <button id="btn-ricomincia">Ricomincia</button>
+  </div>
+
+  <script src="gioco.js"></script>
+</body>
+</html>
